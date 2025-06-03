@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Tech Stack | GenZonix</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary: #f59e0b;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f172a;
+      color: var(--light);
+      line-height: 1.6;
+    }
+
+    .tech-hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+      padding: 120px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tech-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #fff, #f59e0b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .tech-hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .decoration {
+      position: absolute;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .dec-1 {
+      top: 50px;
+      left: 10%;
+      font-size: 120px;
+      color: var(--secondary);
+    }
+
+    .dec-2 {
+      bottom: 30px;
+      right: 15%;
+      font-size: 150px;
+      color: var(--primary);
+    }
+
+    .tech-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .experience-badge {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.2);
+      color: var(--secondary);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .tech-section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--gray);
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .tech-card {
+      background: rgba(30, 41, 59, 0.6);
+      border-radius: 15px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .tech-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      border-color: rgba(99, 102, 241, 0.3);
+    }
+
+    .tech-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+      z-index: -1;
+    }
+
+    .tech-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+
+    .tech-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .tech-card p {
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .tech-years {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.2);
+      color: #10b981;
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .tech-pill {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.2);
+      color: var(--primary);
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    .glow {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, rgba(99, 102, 241, 0) 70%);
+      z-index: 0;
+    }
+
+    .glow-1 {
+      top: 20%;
+      left: 10%;
+    }
+
+    .glow-2 {
+      bottom: 10%;
+      right: 15%;
+    }
+
+    @media (max-width: 768px) {
+      .tech-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .tech-hero {
+        padding: 100px 0 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Technologies Hero -->
+  <section class="tech-hero">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="decoration dec-1">
+      <i class="fas fa-microchip"></i>
+    </div>
+    <div class="decoration dec-2">
+      <i class="fas fa-brain"></i>
+    </div>
+    <div class="tech-container">
+      <span class="experience-badge">10+ Years Experience</span>
+      <h1>Our Technology Stack</h1>
+      <p>We leverage cutting-edge technologies to build scalable, performant solutions that drive business growth and deliver exceptional user experiences.</p>
+    </div>
+  </section>
+
+  <!-- Mobile Technologies -->
+  <section class="tech-section">
+    <div class="tech-container">
+      <div class="section-title">
+        <h2>Mobile Development</h2>
+        <p>Building cross-platform and native mobile experiences that users love</p>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fab fa-react"></i>
+          </div>
+          <h3>React Native</h3>
+          <p>Cross-platform apps with native performance using JavaScript</p>
+          <span class="tech-years">7+ years</span>
+          <div style="margin-top: 15px;">
+            <span class="tech-pill">Expo</span>
+            <span class="tech-pill">Redux</span>
+            <span class="tech-pill">TypeScript</span>
+          </div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Flutter</h3>
+          <p>Beautiful native apps with a single codebase using Dart</p>
+          <span class="tech-years">5+ years</span>
+          <div style="margin-top: 15px;">
+            <span class="tech-pill">Bloc</span>
+            <span class="tech-pill">Firebase</span>
+            <span class="tech-pill">GetX</span>
+          </div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fab fa-android"></i>
+          </div>
+          <h3>Android Native</h3>
+          <p>High-performance Android apps with Kotlin and Jetpack</p>
+          <span class="tech-years">10+ years</span>
+          <div style="margin-top: 15px;">
+            <span class="tech-pill">Jetpack Compose</span>
+            <span class="tech-pill">KMM</span>
+            <span class="tech-pill">Coroutines</span>
+          </div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fab fa-apple"></i>
+          </div>
+          <h3>iOS Native</h3>
+          <p>Premium iOS experiences with Swift and UIKit/SwiftUI</p>
+          <span class="tech-years">8+ years</span>
+          <div style="margin-top: 15px;">
+            <span class="tech-pill">SwiftUI</span>
+            <span class="tech-pill">Combine</span>
+            <span class="tech-pill">Core Data</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Web Technologies -->
+  <section class="tech-section" style="background: rgba(15, 23, 42, 0.8);">
+    <div class="tech-container">
+      <div class="section-title">
+        <h2>Web Development</h2>
+        <p>Modern web applications with responsive design and cutting-edge features</p>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fab fa-react"></i>
+          </div>
+          <h3>React</h3>
+          <p>Interactive UIs with reusable components and state management</p>
+          <span class="tech-years">8+ years</span>
+          <div style="margin-top: 15px;">
+            <span class="tech-pill">Next.js</span>
+            <span class="tech-pill">Redux</span>
+            <span class="tech-pill">GraphQL</span>
+          </div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fab fa-vuejs"></i>
+          </div>
+          <h3>Vue</h3>
+          <p>Progressive framework for building user interfaces</p>
+          <span class="tech-years">6+ years</span>
+          <div style="margin-top: 15px;">
+            <span class="tech-pill">Nuxt.js</span>
+            <span class="tech-pill">Vuex</span>
+            <span class="tech-pill">Vuetify</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Backend Technologies -->
+  <section class="tech-section">
+    <div class="tech-container">
+      <div class="section-title">
+        <h2>Backend Development</h2>
+        <p>Scalable server architectures and robust APIs for your applications</p>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fab fa-node-js"></i>
+          </div>
+          <h3>Node.js</h3>
+          <p>JavaScript runtime for building fast and scalable network applications</p>
+          <span class="tech-years">8+ years</span>
+          <div style="margin-top: 15px;">
+            <span class="tech-pill">Express</span>
+            <span class="tech-pill">NestJS</span>
+            <span class="tech-pill">TypeORM</span>
+          </div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fab fa-python"></i>
+          </div>
+          <h3>Python</h3>
+          <p>High-level programming for rapid development and clean syntax</p>
+          <span class="tech-years">7+ years</span>
+          <div style="margin-top: 15px;">
+            <span class="tech-pill">Django</span>
+            <span class="tech-pill">FastAPI</span>
+            <span class="tech-pill">Flask</span>
+          </div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fab fa-php"></i>
+          </div>
+          <h3>Laravel</h3>
+          <p>PHP framework for elegant web applications with expressive syntax</p>
+          <span class="tech-years">5+ years</span>
+          <div style="margin-top: 15px;">
+            <span class="tech-pill">Eloquent</span>
+            <span class="tech-pill">Livewire</span>
+            <span class="tech-pill">Vapor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Infrastructure & AI -->
+  <section class="tech-section" style="background: rgba(15, 23, 42, 0.8);">
+    <div class="tech-container">
+      <div class="section-title">
+        <h2>Infrastructure & AI</h2>
+        <p>Deployment, scaling, and intelligent solutions for modern applications</p>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fab fa-aws"></i>
+          </div>
+          <h3>AWS</h3>
+          <p>Full scalable cloud infrastructure with enterprise-grade reliability</p>
+          <span class="tech-years">6+ years</span>
+          <div style="margin-top: 15px;">
+            <span class="tech-pill">EC2</span>
+            <span class="tech-pill">Lambda</span>
+            <span class="tech-pill">RDS</span>
+          </div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3>VPS Solutions</h3>
+          <p>Cost-effective virtual private servers with high performance</p>
+          <span class="tech-years">5+ years</span>
+          <div style="margin-top: 15px;">
+            <span class="tech-pill">Contabo</span>
+            <span class="tech-pill">Hostinger</span>
+            <span class="tech-pill">Docker</span>
+          </div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>AI Solutions</h3>
+          <p>Custom model training and third-party AI integrations</p>
+          <span class="tech-years">4+ years</span>
+          <div style="margin-top: 15px;">
+            <span class="tech-pill">LLMs</span>
+            <span class="tech-pill">TensorFlow</span>
+            <span class="tech-pill">OpenAI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marketing & Growth -->
+  <section class="tech-section">
+    <div class="tech-container">
+      <div class="section-title">
+        <h2>Marketing & Growth</h2>
+        <p>Data-driven strategies to acquire and retain users at scale</p>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h3>Paid Advertising</h3>
+          <p>Precision targeting across major digital platforms</p>
+          <span class="tech-years">7+ years</span>
+          <div style="margin-top: 15px;">
+            <span class="tech-pill">Google Ads</span>
+            <span class="tech-pill">Meta Ads</span>
+            <span class="tech-pill">TikTok Ads</span>
+          </div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3>SEO & ASO</h3>
+          <p>Organic growth through search optimization strategies</p>
+          <span class="tech-years">6+ years</span>
+          <div style="margin-top: 15px;">
+            <span class="tech-pill">Keyword Research</span>
+            <span class="tech-pill">Store Optimization</span>
+            <span class="tech-pill">Analytics</span>
+          </div>
+        </div>
+        <div class="tech-card">
+          <div class="tech-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>Product Management</h3>
+          <p>From MVP launch to scaling successful products</p>
+          <span class="tech-years">10+ years</span>
+          <div style="margin-top: 15px;">
+            <span class="tech-pill">Roadmapping</span>
+            <span class="tech-pill">Growth Hacking</span>
+            <span class="tech-pill">Market Fit</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Animate tech cards on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const techCards = document.querySelectorAll('.tech-card');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      techCards.forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'all 0.6s ease';
+        observer.observe(card);
+      });
+    });
+  </script>
+</body>
+</html>
