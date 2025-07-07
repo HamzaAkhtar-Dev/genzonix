@@ -1,1 +1,2 @@
 google.com, pub-2604269535667028, DIRECT, f08c47fec0942fa0
+mintegral.com, 56757, DIRECT
